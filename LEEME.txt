@@ -1,0 +1,9 @@
+D-ACERO — Sitio local
+
+Abre index.html con doble clic. Mantén juntos los HTML, style.css, script.js y la carpeta images. No se cargan fragmentos con fetch.
+
+El carrito usa localStorage y se conserva entre páginas cuando el navegador permite almacenamiento en archivos locales. Pulsa “Solicitar cotización” para abrir WhatsApp con productos y cantidades; el carrito no se vacía automáticamente.
+
+Faltan fotos reales de tubería PVC 1/2 x 6 m, cemento Argos 50 kg, pintura anticorrosiva Ferro, alambre de púas y codo PVC. El catálogo muestra una imagen local mientras agregas esas fotos. tanque_de_agua.ino no se usa.
+
+Se conserva el mapa y las ubicaciones actuales. Confirma el mapa o ubicación nueva antes de sustituirlos.

@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061a38">
+  <meta name="description" content="Ferretería industrial D-ACERO en Sincelejo y Sahagún. Catálogo, materiales de construcción, acero y herramientas.">
+  <title>Productos | D-ACERO</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<header class="site-header">
+    <a class="brand" href="index.html" aria-label="D-ACERO, inicio">
+      <span class="brand-wordmark"><span class="brand-dash">D-</span><strong>ACERO</strong></span>
+    </a>
+
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="index.html" class="nav-link">Inicio</a>
+      <a href="productos.html" class="nav-link active" aria-current="page">Productos</a>
+      <a href="informacion.html" class="nav-link">Información</a>
+      <a href="contacto.html" class="nav-link">Contacto</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-search" href="productos.html" aria-label="Buscar productos">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 4.5 4.5"></path></svg><span>Buscar productos...</span>
+      </a>
+
+      <button class="text-button login-button" type="button" disabled aria-label="Ingreso de clientes no habilitado" title="El ingreso de clientes no está habilitado"><span class="login-label">Ingreso no habilitado</span></button>
+
+      <a class="icon-button" href="solicitud.html" aria-label="Solicitud de cotización">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count">0</span>
+      </a>
+    </div>
+  </header>
+<main>
+<section class="page" id="product-listing">
+      <div class="wrap catalog-page">
+        <h1>Catálogo de productos</h1>
+
+        <label class="search-field">
+          <span aria-hidden="true">⌕</span>
+          <input
+            id="product-search"
+            type="search"
+            placeholder="Buscar productos..."
+            aria-label="Buscar productos"
+          >
+        </label>
+
+        <div class="catalog-layout">
+          <aside class="filters">
+            <h2>Filtros</h2>
+
+            <div class="filter-group">
+              <h3>Categorías</h3>
+              <label>
+                <input type="checkbox" value="Tuberías" class="category-filter">
+                Tuberías
+              </label>
+              <label>
+                <input type="checkbox" value="Construcción" class="category-filter">
+                Construcción
+              </label>
+              <label>
+                <input type="checkbox" value="Herramientas" class="category-filter">
+                Herramientas
+              </label>
+            </div>
+
+            <div class="filter-group">
+              <h3>Rango de precio</h3>
+              <input
+                type="range"
+                id="price-range"
+                class="price-range"
+                min="0"
+                max="1000000"
+                value="1000000"
+                aria-label="Precio máximo"
+              >
+              <div class="range-labels">
+                <span>$0</span>
+                <span id="price-range-label">$1M+</span>
+              </div>
+              <button class="filter-reset" id="reset-filters" type="button">Restablecer filtros</button>
+            </div>
+          </aside>
+
+          <div class="catalog-results">
+            <div class="results-toolbar">
+              <span id="results-count">Mostrando productos</span>
+              <label>
+                Ordenar por:
+                <select id="sort-products">
+                  <option value="relevance">Relevancia</option>
+                  <option value="price-low">Precio: menor a mayor</option>
+                  <option value="price-high">Precio: mayor a menor</option>
+                </select>
+              </label>
+            </div>
+
+            <div
+              class="product-grid catalog-grid"
+              id="catalog-products"
+            ></div>
+
+            <p class="empty-state" id="empty-state" hidden>
+              No encontramos productos con esos criterios.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="page product-detail-page" id="product-detail" hidden>
+      <div class="wrap detail-page">
+        <p class="breadcrumbs">
+          <a href="index.html">Inicio</a> ›
+          <a href="productos.html">Productos</a> ›
+          <span id="detail-category">Tuberías</span>
+        </p>
+
+        <div class="detail-layout">
+          <div class="detail-visual">
+            <img id="detail-image" src="" alt="">
+
+            <div class="thumb-row">
+              <button class="thumb active" aria-label="Ver imagen del producto">
+                <img id="thumb-image" src="" alt="">
+              </button>
+              <div class="thumb-placeholder">＋</div>
+            </div>
+          </div>
+
+          <div class="detail-info">
+            <div class="detail-top">
+              <p class="eyebrow" id="detail-eyebrow">TUBERÍAS</p>
+              <span class="stock-tag">✓ En stock</span>
+            </div>
+
+            <h1 id="detail-name"></h1>
+            <p class="detail-price" id="detail-price"></p>
+            <p id="detail-description" class="detail-description"></p>
+
+            <h2 class="spec-title">Especificaciones técnicas</h2>
+            <dl class="spec-list">
+              <div><dt>Diámetro</dt><dd id="detail-size">2 pulgadas</dd></div>
+              <div><dt>Longitud</dt><dd>6 m</dd></div>
+              <div><dt>Material</dt><dd>Acero estructural</dd></div>
+              <div><dt>Acabado</dt><dd>Industrial</dd></div>
+            </dl>
+
+            <div class="quantity-row">
+              <strong>Cantidad</strong>
+              <div class="quantity-control">
+                <button data-quantity="minus" aria-label="Reducir cantidad">−</button>
+                <span id="detail-quantity">1</span>
+                <button data-quantity="plus" aria-label="Aumentar cantidad">+</button>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button class="button button-primary" id="add-detail">
+                ＋ Agregar a solicitud
+              </button>
+              <a class="button button-outline" href="contacto.html">
+                Contactar
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <section class="related">
+          <h2>Productos relacionados</h2>
+          <div class="product-grid" id="related-products"></div>
+        </section>
+      </div>
+    </section>
+</main>
+<footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div class="footer-column footer-contact-column">
+        <a class="brand footer-brand" href="index.html" aria-label="D-Acero, volver al inicio">
+          <span class="brand-wordmark"><span class="brand-dash">D-</span><strong>ACERO</strong></span>
+        </a>
+        <h2>Contáctanos</h2>
+        <a class="footer-contact-link" href="tel:+573145139305"><span aria-hidden="true">☎</span> +57 (314) 513-9305</a>
+        <a class="footer-contact-link" href="mailto:dacerosventas@gmail.com"><span aria-hidden="true">✉</span> dacerosventas@gmail.com</a>
+        <address class="footer-address">
+          <span aria-hidden="true">⌖</span> Cra. 25 # 32–45, Zona Industrial,<br>Sincelejo, Sucre
+        </address>
+        <small class="footer-copyright">© 2026 D-ACERO Industrial. Todos los derechos reservados.</small>
+      </div>
+
+      <div class="footer-column">
+        <h2>Productos</h2>
+        <a href="productos.html">Ver catálogo</a>
+        <a href="productos.html?categoria=Tuberías">Tuberías y accesorios</a>
+        <a href="productos.html?categoria=Construcción">Materiales de construcción</a>
+        <a href="productos.html?categoria=Herramientas">Herramientas</a>
+      </div>
+
+      <div class="footer-column">
+        <h2>Información</h2>
+        <a href="informacion.html">Nuestra empresa</a>
+        <a href="informacion.html">Sede Sincelejo</a>
+        <a href="informacion.html">Sede Sahagún</a>
+        <a href="contacto.html">Contacto y cotizaciones</a>
+      </div>
+
+      <div class="footer-column footer-social-column">
+        <h2>Síguenos en redes</h2>
+        <p>Conoce nuestros productos, novedades y proyectos.</p>
+        <div class="social-links">
+          <a class="social-link social-facebook" href="https://www.facebook.com/ferroacero.sincelejo/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de D-Acero" title="Facebook">
+            <span aria-hidden="true">f</span>
+          </a>
+          <a class="social-link social-instagram" href="https://www.instagram.com/dacero.co/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de D-Acero" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="instagram-dot" cx="17.7" cy="6.7" r="1"></circle></svg>
+          </a>
+        </div>
+        <span class="footer-social-note">Síguenos y hablemos de tu próximo proyecto.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/573145139305?text=Hola%20D-Acero%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20productos." target="_blank" rel="noopener noreferrer" aria-label="Escribir a D-Acero por WhatsApp" title="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 11.7a8.35 8.35 0 0 1-12.35 7.35L3 20l.98-4.88A8.4 8.4 0 1 1 20.4 11.7Z"></path><path d="M8.2 7.7c.25-.56.51-.57.77-.58h.65c.2 0 .45.08.56.39l.78 1.88c.1.25.07.46-.08.64l-.62.75c-.18.19-.25.38-.1.64.17.28.72 1.18 1.59 1.91 1.09.92 2 .99 2.28 1.08.27.08.44.06.61-.14l.82-.96c.2-.24.41-.28.67-.18l1.8.86c.27.13.45.2.51.33.07.13.07.74-.18 1.44-.25.7-1.48 1.34-2.04 1.39-.52.05-1.17.07-1.89-.16-.44-.14-1.01-.33-1.74-.66-3.06-1.33-5.05-4.45-5.2-4.66-.15-.2-1.24-1.65-1.24-3.14 0-1.5.78-2.23 1.05-2.53Z"></path></svg></a>
+  <div class="toast" role="status" aria-live="polite"></div>
+
+<a class="back-to-top" href="#top" aria-label="Volver arriba" title="Volver arriba">↑</a><div class="toast" role="status" aria-live="polite"></div><script>document.body.id="top";</script></body></html>
