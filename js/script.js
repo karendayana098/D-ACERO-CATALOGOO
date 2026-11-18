@@ -11,6 +11,14 @@ const products = [
     tag: 'Destacado'
   },
   {
+    id: 25,
+    name: 'Tubería PVC de 1/0',
+    category: 'Tuberías',
+    description: 'Tubería de PVC para instalaciones hidráulicas, medida 1/0.',
+    price: null,
+    image: 'images/tuberia-pvc-1-0.png'
+  },
+  {
     id: 2,
     name: 'Varilla corrugada de 3/8 pulgada',
     category: 'Construcción',
@@ -50,7 +58,7 @@ const products = [
     category: 'Construcción',
     description: 'Pintura para proteger superficies metálicas contra la corrosión.',
     price: null,
-    image: 'images/daceroalmacen.png'
+    image: 'images/pintura-anticorrosiva-ferro.png'
   },
   {
     id: 8,
@@ -59,22 +67,6 @@ const products = [
     description: 'Adhesivo para unir tuberías y accesorios de PVC.',
     price: null,
     image: 'images/pegante.png'
-  },
-  {
-    id: 9,
-    name: 'Alambre de púas',
-    category: 'Construcción',
-    description: 'Alambre resistente para cercas, corrales y cerramientos rurales.',
-    price: null,
-    image: 'images/daceroalmacen.png'
-  },
-  {
-    id: 10,
-    name: 'Codo para tubería PVC',
-    category: 'Tuberías',
-    description: 'Accesorio para conectar tuberías y cambiar la dirección de una instalación.',
-    price: null,
-    image: 'images/daceroalmacen.png'
   },
   {
     id: 11,
@@ -180,14 +172,7 @@ const products = [
     price: 21252,
     image: 'images/varilla-cuadrada-9mm.png'
   },
-  {
-    id: 24,
-    name: 'Alambre de púa rollo x 200 m',
-    category: 'Alambres',
-    description: 'Rollo de alambre de púa de 200 m para cercas y cerramientos.',
-    price: 63426,
-    image: 'images/alambre-puas-200m.png'
-  }
+  
 ];
 /* FIN DE DATOS DEL CATÁLOGO */
 
