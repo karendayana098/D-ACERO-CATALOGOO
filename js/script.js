@@ -1,21 +1,10 @@
 /* INICIO DE DATOS DEL CATÁLOGO */
 const products = [
   {
-    id: 1,
-    name: 'Tubería PVC de 1/2 pulgada x 6 m',
-    category: 'Tuberías',
-    description: 'Tubería para instalaciones hidráulicas en viviendas y proyectos de construcción.',
-    price: 18000,
-    image: 'images/daceroalmacen.png',
-    fallback: 'images/daceroalmacen.png',
-    tag: 'Destacado'
-  },
-  {
     id: 25,
-    name: 'Tubería PVC de 1/0',
+    name: 'Tubería PVC de 1 pulgada x 6 m',
     category: 'Tuberías',
-    description: 'Tubería de PVC para instalaciones hidráulicas, medida 1/0.',
-    price: null,
+    description: 'Tubería de PVC de presión, 1 pulgada x 6 m, para instalaciones hidráulicas.',
     image: 'images/tuberia-pvc-1-0.png'
   },
   {
@@ -23,7 +12,6 @@ const products = [
     name: 'Varilla corrugada de 3/8 pulgada',
     category: 'Construcción',
     description: 'Acero de refuerzo para estructuras de concreto y proyectos de obra.',
-    price: 22000,
     image: 'images/varilla.png',
     tag: 'Popular'
   },
@@ -32,7 +20,6 @@ const products = [
     name: 'Teja arquitectónica de 6 m, calibre 30',
     category: 'Construcción',
     description: 'Teja metálica para cubiertas de viviendas, patios, bodegas y estructuras exteriores.',
-    price: 80000,
     image: 'images/tejaarq.png',
     tag: 'Destacado'
   },
@@ -41,7 +28,6 @@ const products = [
     name: 'Tanque de agua de 500 litros',
     category: 'Construcción',
     description: 'Tanque plástico para almacenar agua en viviendas y proyectos.',
-    price: null,
     image: 'images/tanque.png'
   },
   {
@@ -49,7 +35,6 @@ const products = [
     name: 'Malla eslabonada galvanizada',
     category: 'Construcción',
     description: 'Malla metálica galvanizada para cerramientos y divisiones resistentes.',
-    price: null,
     image: 'images/malla.png'
   },
   {
@@ -57,7 +42,6 @@ const products = [
     name: 'Pintura anticorrosiva Ferro',
     category: 'Construcción',
     description: 'Pintura para proteger superficies metálicas contra la corrosión.',
-    price: null,
     image: 'images/pintura-anticorrosiva-ferro.png'
   },
   {
@@ -65,7 +49,6 @@ const products = [
     name: 'Pegante para PVC de 1/4 de galón',
     category: 'Tuberías',
     description: 'Adhesivo para unir tuberías y accesorios de PVC.',
-    price: null,
     image: 'images/pegante.png'
   },
   {
@@ -73,7 +56,6 @@ const products = [
     name: 'Serrucho manual',
     category: 'Herramientas',
     description: 'Herramienta de corte para trabajos de construcción y carpintería.',
-    price: null,
     image: 'images/serrucho.png'
   },
   {
@@ -81,7 +63,6 @@ const products = [
     name: 'Disco de corte para metal',
     category: 'Herramientas',
     description: 'Disco abrasivo para trabajos de corte y metalmecánica.',
-    price: null,
     image: 'images/disco.png'
   },
   {
@@ -89,7 +70,6 @@ const products = [
     name: 'Cemento Argos gris x 50 kg',
     category: 'Cemento',
     description: 'Cemento gris Argos en presentación de 50 kg para obras y reparaciones.',
-    price: 39996,
     image: 'images/cemento.webp'
   },
   {
@@ -97,7 +77,6 @@ const products = [
     name: 'Malla electrosoldada 15 x 15 – 6 mm',
     category: 'Mallas',
     description: 'Malla electrosoldada de 15 x 15 cm y alambre de 6 mm para refuerzo de concreto.',
-    price: 106875,
     image: 'images/malla-electrosoldada.png'
   },
   {
@@ -105,7 +84,6 @@ const products = [
     name: 'Teja arquitectónica azul x 6 m',
     category: 'Tejas',
     description: 'Teja arquitectónica azul de 6 m para cubiertas y estructuras.',
-    price: 88392,
     image: 'images/teja-azul.png'
   },
   {
@@ -113,7 +91,6 @@ const products = [
     name: 'Lámina galvanizada cal. 18',
     category: 'Láminas',
     description: 'Lámina galvanizada calibre 18 para trabajos de construcción y metalmecánica.',
-    price: 137250,
     image: 'images/lamina-galvanizada-cal18.png'
   },
   {
@@ -121,7 +98,6 @@ const products = [
     name: 'Ángulo 1 x 1/8',
     category: 'Ángulos',
     description: 'Perfil angular metálico de 1 x 1/8 para estructuras y fabricación.',
-    price: 28114,
     image: 'images/angulo-1x1-8.png'
   },
   {
@@ -129,7 +105,6 @@ const products = [
     name: 'Taladro percutor 1/2 Black+Decker',
     category: 'Herramientas',
     description: 'Taladro percutor Black+Decker con mandril de 1/2 pulgada.',
-    price: 218389,
     image: 'images/taladro-black-decker.png'
   },
   {
@@ -137,7 +112,6 @@ const products = [
     name: 'Pintura T2 agua galón azul claro',
     category: 'Pinturas',
     description: 'Pintura base agua T2 en galón, color azul claro.',
-    price: 55250,
     image: 'images/pintura-t2-azul-claro.png'
   },
   {
@@ -145,7 +119,6 @@ const products = [
     name: 'Cable #14 blanco',
     category: 'Eléctricos',
     description: 'Cable eléctrico calibre #14 color blanco.',
-    price: 2032,
     image: 'images/cable-14-blanco.png'
   },
   {
@@ -153,7 +126,6 @@ const products = [
     name: 'Disco Abracol corte 4 1/2"',
     category: 'Discos',
     description: 'Disco Abracol de corte de 4 1/2 pulgadas.',
-    price: 3426,
     image: 'images/disco-abracol.png'
   },
   {
@@ -161,7 +133,6 @@ const products = [
     name: 'Brocha 1 1/2',
     category: 'Brochas',
     description: 'Brocha de 1 1/2 pulgadas para aplicación de pintura.',
-    price: 2009,
     image: 'images/brocha-1-5.png'
   },
   {
@@ -169,7 +140,6 @@ const products = [
     name: 'Varilla cuadrada 9 mm',
     category: 'Barras',
     description: 'Barra metálica cuadrada de 9 mm para construcción y fabricación.',
-    price: 21252,
     image: 'images/varilla-cuadrada-9mm.png'
   },
   
@@ -180,7 +150,6 @@ const products = [
 const SALES_WHATSAPP = '573145139305';
 const FALLBACK_IMAGE = 'images/daceroalmacen.png';
 const byId = id => document.getElementById(id);
-const money = value => value == null ? 'Precio por confirmar' : '$' + Number(value).toLocaleString('es-CO');
 let cart = [];
 let selectedProduct = products[0];
 let detailQuantity = 1;
@@ -218,9 +187,6 @@ document.addEventListener('error', event => {
   image.src = fallback;
 }, true);
 
-function formatProductPrice(product) {
-  return product.price == null ? '<span class="price-to-confirm">Precio por confirmar</span>' : money(product.price);
-}
 /* FIN DE ESTADO Y UTILIDADES */
 
 /* INICIO DE CUENTAS LOCALES */
@@ -491,7 +457,6 @@ function productCard(product) {
         <span class="product-category">${product.category}</span>
         <h3>${product.name}</h3>
         <p>${product.description}</p>
-        <strong class="product-price">${formatProductPrice(product)}</strong>
         <div class="product-actions">
           <button class="button button-outline" type="button" data-detail="${product.id}">Ver producto</button>
           <button class="button button-primary" type="button" data-add="${product.id}" aria-label="Añadir ${product.name} a la solicitud">＋</button>
@@ -511,14 +476,8 @@ function renderCatalog() {
   let list = [...products];
   const query = (byId('product-search')?.value || '').trim().toLocaleLowerCase('es');
   const categories = [...document.querySelectorAll('.category-filter:checked')].map(input => input.value);
-  const maximum = Number(byId('price-range')?.value || 1000000);
-  const sort = byId('sort-products')?.value || 'relevance';
-
   if (query) list = list.filter(product => `${product.name} ${product.category} ${product.description}`.toLocaleLowerCase('es').includes(query));
   if (categories.length) list = list.filter(product => categories.includes(product.category));
-  if (maximum < 1000000) list = list.filter(product => product.price == null || product.price <= maximum);
-  if (sort === 'price-low') list.sort((a, b) => a.price == null ? (b.price == null ? 0 : 1) : (b.price == null ? -1 : a.price - b.price));
-  if (sort === 'price-high') list.sort((a, b) => a.price == null ? (b.price == null ? 0 : 1) : (b.price == null ? -1 : b.price - a.price));
 
   const count = byId('results-count');
   if (count) count.textContent = `Mostrando ${list.length} producto${list.length === 1 ? '' : 's'}`;
@@ -532,7 +491,6 @@ function showDetail(product) {
   byId('detail-category').textContent = product.category;
   byId('detail-eyebrow').textContent = product.category.toUpperCase();
   byId('detail-name').textContent = product.name;
-  byId('detail-price').textContent = money(product.price);
   byId('detail-description').textContent = product.description;
   const detailImage = byId('detail-image');
   detailImage.src = product.image;
@@ -549,18 +507,9 @@ function showDetail(product) {
 }
 
 byId('product-search')?.addEventListener('input', renderCatalog);
-byId('sort-products')?.addEventListener('change', renderCatalog);
-byId('price-range')?.addEventListener('input', event => {
-  const label = byId('price-range-label');
-  if (label) label.textContent = Number(event.currentTarget.value) >= 1000000 ? '$1M+' : money(event.currentTarget.value);
-  renderCatalog();
-});
 byId('reset-filters')?.addEventListener('click', () => {
   if (byId('product-search')) byId('product-search').value = '';
-  if (byId('price-range')) byId('price-range').value = byId('price-range').max;
-  if (byId('sort-products')) byId('sort-products').value = 'relevance';
   document.querySelectorAll('.category-filter').forEach(input => { input.checked = false; });
-  if (byId('price-range-label')) byId('price-range-label').textContent = '$1M+';
   renderCatalog();
 });
 /* FIN DE PRODUCTOS, BÚSQUEDA Y FILTROS */
@@ -594,10 +543,7 @@ function renderCart() {
   const container = byId('quote-items');
   if (!container) return;
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const hasUnpriced = cart.some(item => products.find(product => product.id === item.id)?.price == null);
-  const total = cart.reduce((sum, item) => sum + item.quantity * (products.find(product => product.id === item.id)?.price || 0), 0);
   byId('summary-quantity').textContent = `${totalItems} artículo${totalItems === 1 ? '' : 's'}`;
-  byId('summary-total').textContent = hasUnpriced ? 'Por confirmar' : money(total);
 
   if (!cart.length) {
     container.innerHTML = '<div class="empty-cart">Tu solicitud está vacía.<br><a class="button button-outline empty-cart__link" href="productos.html">Explorar catálogo</a></div>';
@@ -606,9 +552,9 @@ function renderCart() {
 
   const rows = cart.map(item => {
     const product = products.find(row => row.id === item.id);
-    return `<div class="quote-item"><div class="quote-product"><img src="${product.image}" ${fallbackImageAttribute()} alt=""><div><strong>${product.name}</strong><small>Categoría: ${product.category}</small></div></div><span class="quote-unit">${money(product.price)}</span><div class="quote-qty"><button type="button" data-change="${product.id}" data-amount="-1" aria-label="Reducir cantidad">−</button><span>${item.quantity}</span><button type="button" data-change="${product.id}" data-amount="1" aria-label="Aumentar cantidad">＋</button></div><button type="button" class="quote-remove" data-remove="${product.id}" aria-label="Eliminar ${product.name}">×</button></div>`;
+    return `<div class="quote-item"><div class="quote-product"><img src="${product.image}" ${fallbackImageAttribute()} alt=""><strong>${product.name}</strong></div><div class="quote-qty"><button type="button" data-change="${product.id}" data-amount="-1" aria-label="Reducir cantidad">−</button><span>${item.quantity}</span><button type="button" data-change="${product.id}" data-amount="1" aria-label="Aumentar cantidad">＋</button></div><button type="button" class="quote-remove" data-remove="${product.id}" aria-label="Eliminar ${product.name}">×</button></div>`;
   }).join('');
-  container.innerHTML = `<div class="quote-head"><span>Producto</span><span>Precio unit.</span><span>Cantidad</span><span></span></div>${rows}<div class="quote-footer"><a class="button button-outline" href="productos.html">Seguir comprando</a><button id="clear-cart" type="button">Vaciar lista</button></div>`;
+  container.innerHTML = `<div class="quote-head"><span>Producto</span><span>Cantidad</span><span></span></div>${rows}<div class="quote-footer"><a class="button button-outline" href="productos.html">Seguir comprando</a><button id="clear-cart" type="button">Vaciar lista</button></div>`;
 }
 
 function sendQuote() {
@@ -618,12 +564,10 @@ function sendQuote() {
   }
   const lines = cart.map(item => {
     const product = products.find(row => row.id === item.id);
-    return `• ${product.name} — cantidad: ${item.quantity} — precio: ${money(product.price)}`;
+    return `• ${product.name} — cantidad: ${item.quantity}`;
   });
   const notes = byId('quote-notes')?.value.trim();
-  const totalIsKnown = cart.every(item => products.find(row => row.id === item.id)?.price != null);
-  const total = cart.reduce((sum, item) => sum + item.quantity * (products.find(row => row.id === item.id)?.price || 0), 0);
-  const message = ['Hola D-Acero, deseo solicitar esta cotización:', '', ...lines, '', `Subtotal estimado: ${totalIsKnown ? money(total) : 'Por confirmar'}`, notes ? `Observaciones: ${notes}` : ''].filter(Boolean).join('\n');
+  const message = ['Hola D-Acero, deseo solicitar esta cotización:', '', ...lines, notes ? `Observaciones: ${notes}` : ''].filter(Boolean).join('\n');
   window.open(`https://wa.me/${SALES_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
 }
 /* FIN DE COTIZACIÓN Y CARRITO */

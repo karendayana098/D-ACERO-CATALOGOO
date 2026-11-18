@@ -70,36 +70,12 @@
               <h3>Categorías</h3>
             </div>
 
-            <div class="filter-group">
-              <h3>Rango de precio</h3>
-              <input
-                type="range"
-                id="price-range"
-                class="price-range"
-                min="0"
-                max="1000000"
-                value="1000000"
-                aria-label="Precio máximo"
-              >
-              <div class="range-labels">
-                <span>$0</span>
-                <span id="price-range-label">$1M+</span>
-              </div>
-              <button class="filter-reset" id="reset-filters" type="button">Restablecer filtros</button>
-            </div>
+            <button class="filter-reset" id="reset-filters" type="button">Restablecer filtros</button>
           </aside>
 
           <div class="catalog-results">
             <div class="results-toolbar">
               <span id="results-count">Mostrando productos</span>
-              <label>
-                Ordenar por:
-                <select id="sort-products">
-                  <option value="relevance">Relevancia</option>
-                  <option value="price-low">Precio: menor a mayor</option>
-                  <option value="price-high">Precio: mayor a menor</option>
-                </select>
-              </label>
             </div>
 
             <div
@@ -141,7 +117,6 @@
             </div>
 
             <h1 id="detail-name"></h1>
-            <p class="detail-price" id="detail-price"></p>
             <p id="detail-description" class="detail-description"></p>
 
             <h2 class="spec-title">Especificaciones técnicas</h2>
