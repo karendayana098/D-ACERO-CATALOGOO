@@ -29,15 +29,6 @@ const products = [
     tag: 'Destacado'
   },
   {
-    id: 4,
-    name: 'Cemento gris Argos de 50 kg',
-    category: 'Construcción',
-    description: 'Cemento para preparar morteros y concretos destinados a obras y reparaciones.',
-    price: 38000,
-    image: 'images/daceroalmacen.png',
-    tag: 'Popular'
-  },
-  {
     id: 5,
     name: 'Tanque de agua de 500 litros',
     category: 'Construcción',
@@ -115,7 +106,7 @@ const products = [
     category: 'Mallas',
     description: 'Malla electrosoldada de 15 x 15 cm y alambre de 6 mm para refuerzo de concreto.',
     price: 106875,
-    image: 'images/malla.webp'
+    image: 'images/malla-electrosoldada.png'
   },
   {
     id: 15,
@@ -123,7 +114,7 @@ const products = [
     category: 'Tejas',
     description: 'Teja arquitectónica azul de 6 m para cubiertas y estructuras.',
     price: 88392,
-    image: 'images/tejaarq.png'
+    image: 'images/teja-azul.png'
   },
   {
     id: 16,
@@ -131,7 +122,7 @@ const products = [
     category: 'Láminas',
     description: 'Lámina galvanizada calibre 18 para trabajos de construcción y metalmecánica.',
     price: 137250,
-    image: 'images/daceroalmacen.png'
+    image: 'images/lamina-galvanizada-cal18.png'
   },
   {
     id: 17,
@@ -139,7 +130,7 @@ const products = [
     category: 'Ángulos',
     description: 'Perfil angular metálico de 1 x 1/8 para estructuras y fabricación.',
     price: 28114,
-    image: 'images/daceroalmacen.png'
+    image: 'images/angulo-1x1-8.png'
   },
   {
     id: 18,
@@ -147,7 +138,7 @@ const products = [
     category: 'Herramientas',
     description: 'Taladro percutor Black+Decker con mandril de 1/2 pulgada.',
     price: 218389,
-    image: 'images/daceroalmacen.png'
+    image: 'images/taladro-black-decker.png'
   },
   {
     id: 19,
@@ -155,7 +146,7 @@ const products = [
     category: 'Pinturas',
     description: 'Pintura base agua T2 en galón, color azul claro.',
     price: 55250,
-    image: 'images/anticorrosivo.webp'
+    image: 'images/pintura-t2-azul-claro.png'
   },
   {
     id: 20,
@@ -163,7 +154,7 @@ const products = [
     category: 'Eléctricos',
     description: 'Cable eléctrico calibre #14 color blanco.',
     price: 2032,
-    image: 'images/daceroalmacen.png'
+    image: 'images/cable-14-blanco.png'
   },
   {
     id: 21,
@@ -171,7 +162,7 @@ const products = [
     category: 'Discos',
     description: 'Disco Abracol de corte de 4 1/2 pulgadas.',
     price: 3426,
-    image: 'images/disco.png'
+    image: 'images/disco-abracol.png'
   },
   {
     id: 22,
@@ -179,7 +170,7 @@ const products = [
     category: 'Brochas',
     description: 'Brocha de 1 1/2 pulgadas para aplicación de pintura.',
     price: 2009,
-    image: 'images/daceroalmacen.png'
+    image: 'images/brocha-1-5.png'
   },
   {
     id: 23,
@@ -187,7 +178,7 @@ const products = [
     category: 'Barras',
     description: 'Barra metálica cuadrada de 9 mm para construcción y fabricación.',
     price: 21252,
-    image: 'images/varilla.png'
+    image: 'images/varilla-cuadrada-9mm.png'
   },
   {
     id: 24,
@@ -195,7 +186,7 @@ const products = [
     category: 'Alambres',
     description: 'Rollo de alambre de púa de 200 m para cercas y cerramientos.',
     price: 63426,
-    image: 'images/alambre-pua.webp'
+    image: 'images/alambre-puas-200m.png'
   }
 ];
 /* FIN DE DATOS DEL CATÁLOGO */
