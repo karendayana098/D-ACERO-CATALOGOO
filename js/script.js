@@ -148,6 +148,11 @@ const products = [
 
 /* INICIO DE ESTADO Y UTILIDADES */
 const SALES_WHATSAPP = '573145139305';
+const EMAILJS_CONFIG = {
+  serviceId: 'YOUR_SERVICE_ID',
+  templateId: 'YOUR_TEMPLATE_ID',
+  publicKey: 'YOUR_PUBLIC_KEY'
+};
 const FALLBACK_IMAGE = 'images/daceroalmacen.png';
 const byId = id => document.getElementById(id);
 let cart = [];
@@ -188,163 +193,6 @@ document.addEventListener('error', event => {
 }, true);
 
 /* FIN DE ESTADO Y UTILIDADES */
-
-/* INICIO DE CUENTAS LOCALES */
-const ACCOUNT_STORAGE_KEY = 'dacero-accounts';
-const ACCOUNT_SESSION_KEY = 'dacero-account-session';
-const PASSWORD_HASH_ITERATIONS = 310000;
-
-function getAccounts() {
-  try {
-    const accounts = JSON.parse(localStorage.getItem(ACCOUNT_STORAGE_KEY) || '[]');
-    return Array.isArray(accounts) ? accounts : [];
-  } catch (error) {
-    return [];
-  }
-}
-
-function bytesToHex(bytes) {
-  return [...bytes].map(byte => byte.toString(16).padStart(2, '0')).join('');
-}
-
-function hexToBytes(hex) {
-  return new Uint8Array(hex.match(/.{1,2}/g).map(byte => Number.parseInt(byte, 16)));
-}
-
-async function hashAccountPassword(password, salt) {
-  if (!window.crypto?.subtle) {
-    throw new Error('Abre el sitio con HTTPS o localhost para habilitar el registro seguro.');
-  }
-
-  const key = await window.crypto.subtle.importKey(
-    'raw',
-    new TextEncoder().encode(password),
-    'PBKDF2',
-    false,
-    ['deriveBits']
-  );
-  const hash = await window.crypto.subtle.deriveBits({
-    name: 'PBKDF2',
-    salt,
-    iterations: PASSWORD_HASH_ITERATIONS,
-    hash: 'SHA-256'
-  }, key, 256);
-
-  return bytesToHex(new Uint8Array(hash));
-}
-
-function showAccountPanel(view) {
-  const registerView = view === 'register';
-  if (byId('login-panel')) byId('login-panel').hidden = registerView;
-  if (byId('register-panel')) byId('register-panel').hidden = !registerView;
-  if (byId('login-message')) byId('login-message').textContent = '';
-  if (byId('register-message')) byId('register-message').textContent = '';
-}
-
-function showAccountSummary(account) {
-  if (!byId('account-summary')) return;
-
-  byId('login-panel').hidden = true;
-  byId('register-panel').hidden = true;
-  byId('account-summary').hidden = false;
-  byId('account-name').textContent = account.name;
-  byId('account-email').textContent = account.email;
-}
-
-function restoreAccountSession() {
-  try {
-    const email = localStorage.getItem(ACCOUNT_SESSION_KEY);
-    const account = getAccounts().find(item => item.email === email);
-    if (account) showAccountSummary(account);
-  } catch (error) {
-    // El acceso continúa disponible aunque el navegador bloquee localStorage.
-  }
-}
-
-document.querySelectorAll('[data-auth-view]').forEach(button => {
-  button.addEventListener('click', () => showAccountPanel(button.dataset.authView));
-});
-
-byId('register-form')?.addEventListener('submit', async event => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  if (!form.reportValidity()) return;
-
-  const data = new FormData(form);
-  const name = data.get('name').trim();
-  const email = data.get('email').trim().toLocaleLowerCase('es');
-  const phone = data.get('phone').trim();
-  const password = data.get('password');
-  const passwordConfirm = data.get('password-confirm');
-  const message = byId('register-message');
-
-  if (password !== passwordConfirm) {
-    message.textContent = 'Las contraseñas no coinciden.';
-    return;
-  }
-
-  const accounts = getAccounts();
-  if (accounts.some(account => account.email === email)) {
-    message.textContent = 'Ya existe una cuenta con ese correo en este navegador.';
-    return;
-  }
-
-  try {
-    const salt = window.crypto.getRandomValues(new Uint8Array(16));
-    const account = {
-      name,
-      email,
-      phone,
-      salt: bytesToHex(salt),
-      passwordHash: await hashAccountPassword(password, salt)
-    };
-    accounts.push(account);
-    localStorage.setItem(ACCOUNT_STORAGE_KEY, JSON.stringify(accounts));
-    localStorage.setItem(ACCOUNT_SESSION_KEY, account.email);
-    showAccountSummary(account);
-  } catch (error) {
-    message.textContent = error.message || 'No se pudo guardar el registro en este navegador.';
-  }
-});
-
-byId('login-form')?.addEventListener('submit', async event => {
-  event.preventDefault();
-  const form = event.currentTarget;
-  if (!form.reportValidity()) return;
-
-  const data = new FormData(form);
-  const email = data.get('email').trim().toLocaleLowerCase('es');
-  const password = data.get('password');
-  const account = getAccounts().find(item => item.email === email);
-  const message = byId('login-message');
-
-  if (!account) {
-    message.textContent = 'No encontramos una cuenta con ese correo en este navegador.';
-    return;
-  }
-
-  try {
-    const passwordHash = await hashAccountPassword(password, hexToBytes(account.salt));
-    if (passwordHash !== account.passwordHash) {
-      message.textContent = 'La contraseña no es correcta.';
-      return;
-    }
-
-    localStorage.setItem(ACCOUNT_SESSION_KEY, account.email);
-    showAccountSummary(account);
-  } catch (error) {
-    message.textContent = error.message || 'No se pudo validar la cuenta.';
-  }
-});
-
-byId('logout-button')?.addEventListener('click', () => {
-  localStorage.removeItem(ACCOUNT_SESSION_KEY);
-  byId('account-summary').hidden = true;
-  showAccountPanel('login');
-});
-
-restoreAccountSession();
-/* FIN DE CUENTAS LOCALES */
 
 /* INICIO DE FILTROS DE CATEGORÍA */
 function renderCategoryFilters() {
@@ -573,15 +421,65 @@ function sendQuote() {
 /* FIN DE COTIZACIÓN Y CARRITO */
 
 /* INICIO DE FORMULARIOS Y ARRANQUE */
-document.querySelectorAll('.whatsapp-form').forEach(form => {
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const data = new FormData(form);
-    const purpose = form.dataset.formPurpose === 'credit' ? 'solicitar información sobre una cuenta de crédito' : 'enviar este mensaje';
-    const message = [`Hola D-Acero, deseo ${purpose}:`, `Nombre: ${data.get('name') || ''}`, `Teléfono: ${data.get('phone') || ''}`, `Correo: ${data.get('email') || ''}`, `Mensaje: ${data.get('message') || ''}`].join('\n');
-    window.open(`https://wa.me/${SALES_WHATSAPP}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
-  });
+function openEmailDraft(subject, body) {
+  const link = `mailto:dacerosventas@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = link;
+}
+
+byId('contact-email-form')?.addEventListener('submit', event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const data = new FormData(form);
+  const body = [`Nombre: ${data.get('name')}`, `Teléfono: ${data.get('phone') || 'No indicado'}`, `Correo: ${data.get('email')}`, '', 'Mensaje:', data.get('message')].join('\n');
+  openEmailDraft('Mensaje desde el sitio web D-ACERO', body);
+});
+
+byId('subscription-form')?.addEventListener('submit', event => {
+  event.preventDefault();
+  const form = event.currentTarget;
+  if (!form.reportValidity()) return;
+  const data = new FormData(form);
+  const note = byId('subscription-note');
+  const submitButton = form.querySelector('[type="submit"]');
+  const email = data.get('email').trim();
+  const configReady = Object.values(EMAILJS_CONFIG).every(value => value && !value.startsWith('YOUR_'));
+
+  if (!configReady) {
+    note.textContent = 'La suscripción aún no está conectada al servicio de correo. Configura EmailJS para activar las notificaciones.';
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = 'Enviando…';
+  note.textContent = 'Enviando confirmación a tu correo…';
+
+  fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      service_id: EMAILJS_CONFIG.serviceId,
+      template_id: EMAILJS_CONFIG.templateId,
+      user_id: EMAILJS_CONFIG.publicKey,
+      template_params: {
+        name: data.get('name').trim(),
+        email,
+        phone: data.get('phone').trim() || 'No indicado'
+      }
+    })
+  })
+    .then(response => {
+      if (!response.ok) throw new Error('No se pudo enviar el correo. Intenta de nuevo.');
+      note.textContent = `Listo. Enviamos una confirmación a ${email}.`;
+      form.reset();
+    })
+    .catch(() => {
+      note.textContent = 'No se pudo enviar la confirmación. Revisa la configuración de correo e intenta de nuevo.';
+    })
+    .finally(() => {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Suscribirme';
+    });
 });
 
 function showSlide(index) {

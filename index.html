@@ -37,11 +37,6 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.4"></circle><path d="m16 16 4.5 4.5"></path></svg><span>Buscar productos...</span>
       </a>
 
-      <a class="text-button login-button" href="cuenta.html" aria-label="Ingreso y registro de clientes">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>
-        <span class="login-label">Mi cuenta</span>
-      </a>
-
       <a class="icon-button" href="solicitud.html" aria-label="Solicitud de cotización">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 11.1a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6"></path><circle cx="10" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span class="cart-count">0</span>
       </a>
@@ -65,7 +60,7 @@
           <div class="hero-content wrap">
             <p class="eyebrow">Atención cercana para cada proyecto</p>
             <h2>Tu ferretería aliada<br>en la Costa Caribe</h2>
-            <p class="hero-copy">Encuentra materiales y recibe asesoría para tus proyectos de construcción y metalmecánica.</p>
+            <p class="hero-copy">Encuentra materiales y recibe asesoría para tus proyectos de construcción </p>
             <div class="button-row">
               <a class="button button-primary" href="contacto.html">Habla con un asesor</a>
             </div>
@@ -143,6 +138,24 @@
             <img src="images/daceroalmacen.png" alt="Materiales y productos disponibles en el almacén D-Acero" loading="lazy">
             <figcaption><strong>Materiales listos para tu proyecto</strong><span>Acero · Construcción · Ferretería</span></figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section class="newsletter-section" aria-labelledby="newsletter-title">
+        <div class="wrap newsletter-card">
+          <div class="newsletter-copy">
+            <p class="eyebrow">Novedades D-ACERO</p>
+            <h2 id="newsletter-title">Recibe ofertas y promociones</h2>
+            <p>Déjanos tus datos y te enviaremos novedades de productos y ofertas por correo electrónico.</p>
+          </div>
+          <form class="newsletter-form" id="subscription-form">
+            <label>Nombre completo<input name="name" autocomplete="name" required placeholder="Tu nombre"></label>
+            <label>Correo electrónico<input name="email" type="email" autocomplete="email" required placeholder="nombre@correo.com"></label>
+            <label>Teléfono (opcional)<input name="phone" type="tel" autocomplete="tel" placeholder="+57 300 000 0000"></label>
+            <label class="newsletter-consent"><input name="consent" type="checkbox" required><span>Acepto recibir promociones y novedades de D-ACERO por correo.</span></label>
+            <button class="button button-primary" type="submit">Suscribirme</button>
+            <p class="newsletter-note" id="subscription-note" role="status" aria-live="polite">Al suscribirte recibirás una confirmación en el correo indicado.</p>
+          </form>
         </div>
       </section>
     </section>
